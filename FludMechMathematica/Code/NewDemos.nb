@@ -1,0 +1,2062 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     86081,       2054]
+NotebookOptionsPosition[     80176,       1958]
+NotebookOutlinePosition[     80519,       1973]
+CellTagsIndexPosition[     80476,       1970]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Post-Report 2 Demos:", "Chapter",
+ CellChangeTimes->{{3.765133171086377*^9, 
+  3.7651331764467936`*^9}},ExpressionUUID->"9c3ba3bf-cc5b-4216-9e4a-\
+fd989af1321b"],
+
+Cell[CellGroupData[{
+
+Cell["Demo1- Filling multiple unbounded output reservoirs", "Subsection",
+ CellChangeTimes->{{3.765483366303887*^9, 
+  3.7654833738014164`*^9}},ExpressionUUID->"8850c6b3-97d5-4c92-936f-\
+e3351fc82f44"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"create", " ", "origin", " ", "seq"}], ",", " ", 
+    RowBox[{"set", " ", "its", " ", "height"}], ",", " ", 
+    RowBox[{
+    "put", " ", "an", " ", "inputR", " ", "and", " ", "a", " ", "infPump", 
+     " ", "on", " ", 
+     RowBox[{"it", ".", " ", "Then"}], " ", "set", " ", "the", " ", "initial",
+      " ", "flowRate", " ", "using", " ", "the", " ", "pump"}]}], " ", "*)"}],
+   "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewInfInputReservoir", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", "0", ",",
+       " ", 
+      RowBox[{"globalConstants", "[", "\"\<densityWater\>\"", "]"}]}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"6", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], ";"}], 
+   " ", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addInfPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", 
+        RowBox[{
+         SuperscriptBox["\"\<Meters\>\"", "3"], "/", "\"\<Seconds\>\""}]}], 
+       "]"}]}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7642643267270093`*^9, 3.7642643308413715`*^9}, {
+   3.7642644694679146`*^9, 3.764264738106985*^9}, {3.764264848270216*^9, 
+   3.7642648492076144`*^9}, {3.7642653090574017`*^9, 
+   3.7642653528975515`*^9}, {3.7642659535569315`*^9, 3.764265965936277*^9}, {
+   3.76426610524872*^9, 3.764266111517729*^9}, {3.7642661698669004`*^9, 
+   3.764266173054557*^9}, {3.7643558639751387`*^9, 3.7643558887066293`*^9}, {
+   3.764355944539873*^9, 3.764355950695002*^9}, {3.7643560045129347`*^9, 
+   3.7643560310077553`*^9}, {3.764356090331444*^9, 3.7643561032513423`*^9}, {
+   3.7643562480683966`*^9, 3.7643562536895404`*^9}, {3.764356306996648*^9, 
+   3.764356307522727*^9}, 3.764356357522441*^9, {3.764357487746706*^9, 
+   3.764357488060057*^9}, {3.7647725378272295`*^9, 3.7647725378794813`*^9}, {
+   3.764772678571045*^9, 3.7647727045909667`*^9}, 3.765495166598889*^9, {
+   3.7654955812968493`*^9, 3.7654956060220757`*^9}, {3.765495689998999*^9, 
+   3.7654956901019216`*^9}, {3.765495725029541*^9, 3.765495725697236*^9}},
+ CellLabel->
+  "In[332]:=",ExpressionUUID->"3e8e3d01-fc3d-4eb6-a368-bd0169b9f691"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"create", " ", "a", " ", 
+    RowBox[{"split", ".", " ", "connect"}], " ", 
+    RowBox[{"it", ".", " ", "then"}], " ", "put", " ", "output", " ", 
+    "reservoirs", " ", "on", " ", "the", " ", "resulting", " ", "sequences"}],
+    " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"Null", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", " ", "Null"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setStart", "[", 
+     RowBox[{"\"\<spl2\>\"", ",", " ", "\"\<seq1\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "\"\<spl2\>\""}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7643558993347025`*^9, 3.7643559200316343`*^9}, 
+   3.7643559968730965`*^9, {3.76435606624911*^9, 3.7643560793479767`*^9}, {
+   3.7643561221369047`*^9, 3.7643562200208764`*^9}, {3.7643564345812054`*^9, 
+   3.7643564364285383`*^9}, {3.7643565426898355`*^9, 3.764356543771624*^9}, {
+   3.7647721050468826`*^9, 3.7647721236911936`*^9}, {3.765495169164256*^9, 
+   3.765495231469011*^9}, {3.7654959992086267`*^9, 3.7654959992515817`*^9}, {
+   3.7654960445935564`*^9, 3.765496044987189*^9}},
+ CellLabel->
+  "In[337]:=",ExpressionUUID->"828f7330-5847-4083-9d50-33fc445d8a7c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"add", " ", "pipes", " ", "to", " ", "the", " ", "sequences"}], 
+    ",", " ", 
+    RowBox[{"except", " ", "for", " ", "seq6"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7654956481202693`*^9, 3.7654956954632235`*^9}, {
+  3.765496002200024*^9, 3.76549600408957*^9}},
+ CellLabel->
+  "In[340]:=",ExpressionUUID->"3227f171-d677-4483-8f7c-31f755af1184"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "put", " ", "an", " ", "unbounded", " ", "output", " ", "reservoir", " ", 
+    "on", " ", "seq2"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"mapNewUnboundedOutputReservoir", "[", 
+    RowBox[{"\"\<seq3\>\"", ",", " ", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", "0", ",", 
+     "0"}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"mapNewUnboundedOutputReservoir", "[", 
+    RowBox[{"\"\<seq4\>\"", ",", " ", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", "0", ",", 
+     "0"}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"mapNewUnboundedOutputReservoir", "[", 
+    RowBox[{"\"\<seq5\>\"", ",", " ", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", "0", ",", 
+     "0"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7647720775786176`*^9, 3.7647720954022026`*^9}, {
+  3.764772126287288*^9, 3.764772174956133*^9}, {3.764772232879689*^9, 
+  3.7647722723542757`*^9}, {3.764772341227338*^9, 3.7647723563899107`*^9}, {
+  3.764772442731233*^9, 3.7647724559432545`*^9}, {3.7654952453198*^9, 
+  3.7654952503943567`*^9}, {3.7654953540106764`*^9, 3.765495360842943*^9}, {
+  3.76549598295297*^9, 3.76549599572134*^9}},
+ CellLabel->
+  "In[343]:=",ExpressionUUID->"2789cb39-0f30-4c50-824e-2729464dd7de"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"process", " ", "the", " ", "flowRates"}], ",", " ", 
+    "avgDiameters", ",", " ", 
+    RowBox[{"and", " ", "avgVelocities"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"processSysMain", "[", "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.764772359881819*^9, 3.7647723755162563`*^9}, {
+  3.7647725419362116`*^9, 3.7647725460381136`*^9}},
+ CellLabel->
+  "In[346]:=",ExpressionUUID->"c86cbc30-d802-4c00-b1ff-62d9d8e4b7e4"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"advance", " ", "by", " ", "2", " ", "seconds"}], ",", " ", 
+   RowBox[{"fill", " ", "the", " ", 
+    RowBox[{"outputs", ".", " ", "Look"}], " ", "at", " ", "the", " ", "end", 
+    " ", "references", " ", "for", " ", "seq3"}], ",", " ", "4", ",", " ", 
+   RowBox[{"and", " ", "5.", " ", "The", " ", "water", " ", "volume", " ", 
+    RowBox[{"fills", "!"}]}]}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.7654952592668905`*^9, 3.765495285991252*^9}, {
+  3.7654960092090244`*^9, 3.765496014030307*^9}, {3.7661692405633216`*^9, 
+  3.76616925081273*^9}},ExpressionUUID->"641c68b7-1b02-46ac-bda8-\
+00d50f576700"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fillUnOutputs", "[", 
+   RowBox[{"Quantity", "[", 
+    RowBox[{"2", ",", " ", "\"\<Seconds\>\""}], "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.765495746511281*^9, 3.7654957830091925`*^9}},
+ CellLabel->
+  "In[347]:=",ExpressionUUID->"03008c7a-0ce6-44f7-beef-db221990a5eb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Demo2- Generalized pump/reservoir addition and modification", \
+"Subsection",
+ CellChangeTimes->{{3.765133219556813*^9, 3.765133230806656*^9}, {
+  3.7651332964502096`*^9, 3.7651333286499195`*^9}, {3.765483361793788*^9, 
+  3.7654833618606358`*^9}},ExpressionUUID->"92a2f0ab-768d-4150-86b4-\
+be2126c77e34"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"create", " ", "origin", " ", "seq"}], ",", " ", 
+    RowBox[{"set", " ", "its", " ", "height"}], ",", " ", 
+    RowBox[{
+    "put", " ", "the", " ", "reservoir", " ", "and", " ", "pump", " ", "on", 
+     " ", "it"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenInputReservoir", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", "0", ",", 
+      " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", "0", ",", 
+      " ", 
+      RowBox[{"globalConstants", "[", "\"\<densityWater\>\"", "]"}], ",", " ",
+       "0"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.6", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addGenPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "0.75", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"100", ",", " ", "\"\<Watts\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.765142225753999*^9, 3.7651422458891516`*^9}, {
+  3.765142364974539*^9, 3.765142467521764*^9}, {3.7651425867634435`*^9, 
+  3.7651425875132685`*^9}, {3.7651480990790453`*^9, 3.7651481357869825`*^9}, {
+  3.7651500252831707`*^9, 3.7651500291281576`*^9}},
+ CellLabel->
+  "In[349]:=",ExpressionUUID->"a7e54709-2ea0-46cf-9373-99344546cb86"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"add", " ", "another", " ", "sequence"}], ",", " ", 
+    RowBox[{
+    "put", " ", "an", " ", "output", " ", "reservoir", " ", "on", " ", 
+     "it"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "\"\<seq1\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "\"\<seq2\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq2\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", " ", ",", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", "0", 
+      ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", "0", ",", 
+      " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"3", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", "0"}], 
+     "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.765143476757517*^9, 3.7651435910351677`*^9}, {
+  3.7651436462773848`*^9, 3.765143648997573*^9}, {3.7651437518333035`*^9, 
+  3.7651437546002626`*^9}, {3.765148081013725*^9, 3.76514809423533*^9}, {
+  3.765148164290863*^9, 3.7651481655407033`*^9}, {3.7651500192358637`*^9, 
+  3.765150023312766*^9}},
+ CellLabel->
+  "In[354]:=",ExpressionUUID->"e48b5ed1-ad05-4c7a-b647-ee943201f513"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"modify", " ", "the", " ", 
+     RowBox[{"pump", "'"}], "s", " ", "head", " ", "value"}], ",", " ", 
+    RowBox[{"supplied", " ", "electricity"}], ",", " ", 
+    RowBox[{"and", " ", "efficiency"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"modifyGenPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", "0.80", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1000", ",", " ", "\"\<Watts\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"The", " ", 
+      RowBox[{"pump", "'"}], "s", " ", "flow", " ", "rate", " ", "out", " ", 
+      "has", " ", "changed", " ", "because", " ", "you", " ", "modified", " ",
+       "the", " ", "efficiency"}], ",", " ", "electricity", ",", " ", 
+     RowBox[{"and", " ", "head", " ", "value"}]}], " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.7651436307154913`*^9, 3.76514368597052*^9}, {
+  3.76514372779797*^9, 3.7651437410621614`*^9}, {3.7661692772315145`*^9, 
+  3.7661693003552647`*^9}},ExpressionUUID->"b8929cb7-f8ba-4103-bd9e-\
+946f1952c195"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Demo3- Required head value determination ", "Subsection",
+ CellChangeTimes->{{3.7651438227712946`*^9, 3.7651438235055075`*^9}, {
+  3.7651503835235767`*^9, 3.765150391260846*^9}, {3.7654833635460887`*^9, 
+  3.7654833636142435`*^9}},ExpressionUUID->"f21a54b8-0b1d-4dd4-abef-\
+a0100696f3e6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"create", " ", "origin", " ", "seq"}], ",", " ", 
+    RowBox[{"set", " ", "its", " ", "height"}], ",", " ", 
+    RowBox[{
+    "put", " ", "the", " ", "reservoir", " ", "and", " ", "pump", " ", "on", 
+     " ", "it"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenInputReservoir", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"globalConstants", "[", "\"\<densityWater\>\"", "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.6", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addGenPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "0.75", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"100", ",", " ", "\"\<Watts\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.765142225753999*^9, 3.7651422458891516`*^9}, {
+  3.765142364974539*^9, 3.765142467521764*^9}, {3.7651425867634435`*^9, 
+  3.7651425875132685`*^9}, {3.7651480990790453`*^9, 3.7651481357869825`*^9}, {
+  3.7651498037593317`*^9, 3.765149803790688*^9}, {3.765150006497122*^9, 
+  3.7651500130141516`*^9}, {3.765481451039671*^9, 3.765481498007764*^9}, {
+  3.765481532616893*^9, 3.7654815423510437`*^9}, {3.7654816669496*^9, 
+  3.7654816670931044`*^9}},
+ CellLabel->
+  "In[359]:=",ExpressionUUID->"13bdc25e-27fc-4b6f-8802-e7561e7e4262"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"add", " ", "a", " ", "split"}], ",", " ", 
+    RowBox[{
+    "put", " ", "output", " ", "reservoirs", " ", "on", " ", "all", " ", "3", 
+     " ", "of", " ", "its", " ", "derivative", " ", "sequences"}]}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", " ", "Null"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "\"\<spl2\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", " ", ",", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.75", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2000", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2000", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.4", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.4", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1500", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"500", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"NOTE", "-", " ", 
+      RowBox[{"in", " ", "the", " ", "previous", " ", "example"}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"0", "'"}], "s", " ", "were", " ", "used", " ", "in", " ", 
+      "some", " ", "of", " ", "the", " ", "parameter", " ", 
+      RowBox[{"spots", ".", " ", "We"}], " ", 
+      RowBox[{"can", "'"}], "t", " ", "do", " ", "that", " ", "anymore", " ", 
+      "because", " ", "now", " ", 
+      RowBox[{"we", "'"}], "re", " ", "processing", " ", "that", " ", 
+      RowBox[{"information", ".", " ", "The"}], " ", "0", " ", "with", " ", 
+      "its", " ", "respective", " ", "quantity", " ", "has", " ", "to", " ", 
+      "be", " ", 
+      RowBox[{"entered", ".", " ", "Otherwise"}]}], ",", " ", 
+     RowBox[{
+     "the", " ", "unit", " ", "mismatches", " ", "will", " ", "cause", " ", 
+      "issues"}]}], " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.765143476757517*^9, 3.7651435910351677`*^9}, {
+  3.7651436462773848`*^9, 3.765143648997573*^9}, {3.7651437518333035`*^9, 
+  3.7651437546002626`*^9}, {3.765148081013725*^9, 3.76514809423533*^9}, {
+  3.765148164290863*^9, 3.7651481655407033`*^9}, {3.765149734948582*^9, 
+  3.7651497876006613`*^9}, {3.7651498197324457`*^9, 3.7651498452565603`*^9}, {
+  3.7651498897027903`*^9, 3.7651498971230164`*^9}, {3.7651500031226344`*^9, 
+  3.7651500046850457`*^9}, {3.76515004309726*^9, 3.765150124833156*^9}, {
+  3.7651501838783593`*^9, 3.76515034317199*^9}, {3.765480893216117*^9, 
+  3.7654809946420527`*^9}, {3.7654818757601814`*^9, 3.7654818785619583`*^9}, {
+  3.76549637885417*^9, 3.7654963789974127`*^9}},
+ CellLabel->
+  "In[364]:=",ExpressionUUID->"6f4c2ede-da6d-41df-b0c6-ec8c9896255a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"set", " ", "heights", " ", "for", " ", "the", " ", "sequences"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"4", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"3", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7651498102771926`*^9, 3.765149815090955*^9}, {
+  3.7651504220988445`*^9, 3.765150461743854*^9}},
+ CellLabel->
+  "In[369]:=",ExpressionUUID->"06ca9d4e-2574-49a6-9c59-b00d806a8a2d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Uses", " ", "the", " ", "input", " ", "and", " ", "output", " ", 
+    "reservoir", " ", "data", " ", "to", " ", "figure", " ", "out", " ", 
+    "what", " ", "the", " ", "head", " ", "value", " ", 
+    RowBox[{"(", 
+     RowBox[{"capacity", " ", "to", " ", "do", " ", "work"}], ")"}], " ", 
+    "should", " ", "be", " ", "for", " ", "the", " ", "pump"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "The", " ", "height", " ", "of", " ", "the", " ", "output", " ", 
+     "reservoirs", " ", "affects", " ", "this", " ", "value"}], ",", " ", 
+    RowBox[{
+    "along", " ", "with", " ", "the", " ", "pressure", " ", "exerted", " ", 
+     "on", " ", "the", " ", "reservoirs", " ", "by", " ", "pressure", " ", 
+     "gauges", " ", "and", " ", "different", " ", "fluids", " ", "floating", 
+     " ", "above", " ", "the", " ", "water"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"findHeadVal", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.765482438571825*^9, 3.765482481161703*^9}, {
+  3.7654963873665924`*^9, 3.765496421787608*^9}},
+ CellLabel->
+  "In[372]:=",ExpressionUUID->"b7096395-5406-4c15-b201-0ec32657b588"],
+
+Cell[BoxData[
+ TemplateBox[{"2.204081632653061`","\"m\"","meters","\"Meters\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{3.7654824414156113`*^9, 3.765818853758913*^9, 
+  3.766169319575013*^9},
+ CellLabel->
+  "Out[372]=",ExpressionUUID->"ad2de1e5-050c-4af2-9e7f-b92b93b3dc16"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Demo4- Generalized water transfer", "Subsection",
+ CellChangeTimes->{{3.765815568273017*^9, 
+  3.765815583616088*^9}},ExpressionUUID->"6063c1ee-8fda-437c-8ea6-\
+49616fae70a4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"create", " ", "origin", " ", "seq"}], ",", " ", 
+    RowBox[{"set", " ", "its", " ", "height"}], ",", " ", 
+    RowBox[{
+    "put", " ", "the", " ", "reservoir", " ", "and", " ", "pump", " ", "on", 
+     " ", "it"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenInputReservoir", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"globalConstants", "[", "\"\<densityWater\>\"", "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.6", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addGenPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "0.75", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10000", ",", " ", "\"\<Watts\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.765142225753999*^9, 3.7651422458891516`*^9}, {
+   3.765142364974539*^9, 3.765142467521764*^9}, {3.7651425867634435`*^9, 
+   3.7651425875132685`*^9}, {3.7651480990790453`*^9, 
+   3.7651481357869825`*^9}, {3.7651498037593317`*^9, 3.765149803790688*^9}, {
+   3.765150006497122*^9, 3.7651500130141516`*^9}, {3.765481451039671*^9, 
+   3.765481498007764*^9}, {3.765481532616893*^9, 3.7654815423510437`*^9}, {
+   3.7654816669496*^9, 3.7654816670931044`*^9}, {3.7658181101791315`*^9, 
+   3.765818113240918*^9}, 3.7658184184668984`*^9, {3.7658189336987505`*^9, 
+   3.765818933835147*^9}},
+ CellLabel->
+  "In[374]:=",ExpressionUUID->"a5dab3c5-b3ca-4662-b515-d68c15cd4690"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"add", " ", "a", " ", "split"}], ",", " ", 
+    RowBox[{
+    "put", " ", "output", " ", "reservoirs", " ", "on", " ", "all", " ", "3", 
+     " ", "of", " ", "its", " ", "derivative", " ", "sequences"}]}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", " ", "Null"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "\"\<spl2\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", " ", ",", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"3", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.75", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2000", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"4", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2000", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.4", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.4", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1500", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"500", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"NOTE", "-", " ", 
+      RowBox[{"in", " ", "the", " ", "previous", " ", "example"}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"0", "'"}], "s", " ", "were", " ", "used", " ", "in", " ", 
+      "some", " ", "of", " ", "the", " ", "parameter", " ", 
+      RowBox[{"spots", ".", " ", "We"}], " ", 
+      RowBox[{"can", "'"}], "t", " ", "do", " ", "that", " ", "anymore", " ", 
+      "because", " ", "now", " ", 
+      RowBox[{"we", "'"}], "re", " ", "processing", " ", "that", " ", 
+      RowBox[{"information", ".", " ", "The"}], " ", "0", " ", "with", " ", 
+      "its", " ", "respective", " ", "quantity", " ", "has", " ", "to", " ", 
+      "be", " ", 
+      RowBox[{"entered", ".", " ", "Otherwise"}]}], ",", " ", 
+     RowBox[{
+     "the", " ", "unit", " ", "mismatches", " ", "will", " ", "cause", " ", 
+      "issues"}]}], " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.765143476757517*^9, 3.7651435910351677`*^9}, {
+  3.7651436462773848`*^9, 3.765143648997573*^9}, {3.7651437518333035`*^9, 
+  3.7651437546002626`*^9}, {3.765148081013725*^9, 3.76514809423533*^9}, {
+  3.765148164290863*^9, 3.7651481655407033`*^9}, {3.765149734948582*^9, 
+  3.7651497876006613`*^9}, {3.7651498197324457`*^9, 3.7651498452565603`*^9}, {
+  3.7651498897027903`*^9, 3.7651498971230164`*^9}, {3.7651500031226344`*^9, 
+  3.7651500046850457`*^9}, {3.76515004309726*^9, 3.765150124833156*^9}, {
+  3.7651501838783593`*^9, 3.76515034317199*^9}, {3.765480893216117*^9, 
+  3.7654809946420527`*^9}, {3.7654818757601814`*^9, 3.7654818785619583`*^9}, {
+  3.76549637885417*^9, 3.7654963789974127`*^9}, {3.765817741166235*^9, 
+  3.7658177573959665`*^9}},
+ CellLabel->
+  "In[379]:=",ExpressionUUID->"bcbf250d-1090-4b25-9ebf-84d224833abc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"set", " ", "heights", " ", "for", " ", "the", " ", "sequences"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"4", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"3", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7651498102771926`*^9, 3.765149815090955*^9}, {
+  3.7651504220988445`*^9, 3.765150461743854*^9}},
+ CellLabel->
+  "In[384]:=",ExpressionUUID->"a7b9b98b-be45-4092-bd11-e0d9cd01eeec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"add", " ", "pipes"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7658176655193033`*^9, 3.765817710429103*^9}},
+ CellLabel->
+  "In[387]:=",ExpressionUUID->"c736af95-b8cf-40ce-9884-f26648bf1c95"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"process", " ", "system", " ", "attributes"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"processSysMain", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.765817636359551*^9, 3.7658176449618635`*^9}},
+ CellLabel->
+  "In[390]:=",ExpressionUUID->"f61ef167-1e6d-4994-bcc6-10f0f0d09f28"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Is", " ", "the", " ", "head", " ", "value", " ", "of", " ", "the", " ", 
+    "pump", " ", "high", " ", 
+    RowBox[{"enough", "?"}]}], " ", "*)"}], "\n", 
+  RowBox[{
+   RowBox[{"headValCheck", "[", "]"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"No", "!"}], " ", "Ok"}], "..."}], " ", 
+     RowBox[{"let", "'"}], "s", " ", "change", " ", "it"}], " ", 
+    "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.765818562949979*^9, 3.765818577328168*^9}, 
+   3.7658190565959425`*^9, {3.7658191752715774`*^9, 3.765819176057108*^9}},
+ CellLabel->
+  "In[391]:=",ExpressionUUID->"a13df814-6896-4bf9-b800-ac076ad323f8"],
+
+Cell[BoxData["False"], "Output",
+ CellChangeTimes->{3.765819178023405*^9, 3.766169357934619*^9},
+ CellLabel->
+  "Out[391]=",ExpressionUUID->"23a485e0-068d-4bd0-b2d7-bd4cfca23ab5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Keep", " ", "the", " ", "original", " ", "pump", " ", "data"}], 
+    ",", " ", 
+    RowBox[{"except", " ", "for", " ", "the", " ", "head", " ", 
+     RowBox[{"value", ".", " ", "Change"}], " ", "it", " ", "from", " ", "2", 
+     "m", " ", "to", " ", "10", 
+     RowBox[{"m", ".", " ", "Then"}], " ", "run", " ", "a", " ", 
+     RowBox[{"check", ".", " ", "The"}], " ", "head", " ", "value", " ", "is",
+      " ", "now", " ", "high", " ", "enough"}], ",", " ", 
+    RowBox[{"so", " ", "we", " ", "can", " ", "pump", " ", 
+     RowBox[{"water", "!"}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"modifyGenPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "0.75", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10000", ",", " ", "\"\<Watts\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"headValCheck", "[", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"processSysMain", "[", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+     RowBox[{"NOTE", "-", " ", 
+      RowBox[{
+      "flowRate", " ", "decreases", " ", "in", " ", "seq1", " ", "after", " ",
+        "raising", " ", "the", " ", "head", " ", "value", " ", "because", " ",
+        "the", " ", "supplied", " ", "electricity", " ", "stayed", " ", "the",
+        " ", 
+       RowBox[{"same", ".", " ", "If"}], " ", "a", " ", "pump", " ", "has", 
+       " ", "a", " ", "higher", " ", "capacity", " ", "to", " ", "do", " ", 
+       "work"}]}], ",", " ", 
+     RowBox[{
+     "more", " ", "electricity", " ", "must", " ", "be", " ", "supplied", " ",
+       "to", " ", 
+      RowBox[{"it", ".", " ", "This"}], " ", "is", " ", "why", " ", 
+      RowBox[{"it", "'"}], "s", " ", "recommended", " ", "to", " ", "match", 
+      " ", "the", " ", 
+      RowBox[{"system", "'"}], "s", " ", "head", " ", 
+      RowBox[{"value", ".", " ", "Using"}], " ", "the", " ", "modifyGenPump", 
+      " ", "command", " ", "can", " ", "simulate", " ", "stepping", " ", "or",
+       " ", "stepping", " ", "down", " ", "the", " ", "head", " ", "value", 
+      " ", "or", " ", "supplying", " ", "more", " ", 
+      RowBox[{"power", "."}]}]}], " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.7658189430151196`*^9, 3.7658190365541844`*^9}, {
+  3.765819076691533*^9, 3.765819083429108*^9}, {3.765819117854837*^9, 
+  3.7658191343042593`*^9}, {3.7658194555725946`*^9, 3.765819526907089*^9}, {
+  3.76581957165557*^9, 3.7658195725700064`*^9}},
+ CellLabel->
+  "In[392]:=",ExpressionUUID->"61d1a3cf-c0c9-47f7-96f6-f2140c6f8f8a"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{3.765819030220696*^9, 3.765819069053566*^9, 
+  3.765819185669793*^9, 3.765819529739229*^9, 3.7661693614731364`*^9},
+ CellLabel->
+  "Out[393]=",ExpressionUUID->"08f41034-75fd-4f65-a20d-6ad109f59467"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"transfer", " ", "water", " ", "for", " ", "1", " ", "minutes"}], 
+   " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "the", " ", "output", " ", "reservoir", " ", "information", " ", "can", 
+     " ", "be", " ", "found", " ", "in", " ", "the", " ", "end", " ", 
+     "pointer", " ", "for", " ", "seq3"}], ",", " ", "4", ",", " ", 
+    RowBox[{"and", " ", "5"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Before", " ", "fillling", " ", 
+    RowBox[{"water", ":", " ", "\[IndentingNewLine]", 
+     RowBox[{"the", " ", "first", " ", "outputR", " ", "had", " ", "1", 
+      SuperscriptBox["m", "3"], " ", "of", " ", "water", " ", "out", " ", 
+      "of", " ", "3", 
+      SuperscriptBox["m", "3"], "\[IndentingNewLine]", "the", " ", "second", 
+      " ", "outputR", " ", "had", " ", "2", 
+      SuperscriptBox["m", "3"], " ", "of", " ", "water", " ", "out", " ", 
+      "of", " ", "4", 
+      SuperscriptBox["m", "3"], "\[IndentingNewLine]", "the", " ", "third", 
+      " ", "outputR", " ", "had", " ", "0", 
+      SuperscriptBox["m", "3"], " ", "of", " ", "water", " ", "out", " ", 
+      "of", " ", "5", 
+      SuperscriptBox["m", "3"]}]}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"fillGenOutputs", "[", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"60", ",", " ", "\"\<Seconds\>\""}], "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"the", " ", "first", " ", "outputR", " ", "has", " ", "2.53061", 
+     SuperscriptBox["m", "3"], " ", "of", " ", "water", " ", "out", " ", "of",
+      " ", "3", 
+     SuperscriptBox["m", "3"], "\[IndentingNewLine]", "the", " ", "second", 
+     " ", "outputR", " ", "has", " ", "3.53061", 
+     SuperscriptBox["m", "3"], " ", "of", " ", "water", " ", "out", " ", "of",
+      " ", "4", 
+     SuperscriptBox["m", "3"], "\[IndentingNewLine]", "the", " ", "third", 
+     " ", "outputR", " ", "has", " ", "1.53061", 
+     SuperscriptBox["m", "3"], " ", "of", " ", "water", " ", "out", " ", "of",
+      " ", "5", 
+     SuperscriptBox["m", "3"]}], "  ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.7658177820509696`*^9, 3.765817813711029*^9}, {
+  3.7658180346355934`*^9, 3.7658180523453617`*^9}, {3.7658184862602243`*^9, 
+  3.7658185442835035`*^9}, {3.7658186057340255`*^9, 3.7658186058529034`*^9}, {
+  3.7658186814586*^9, 3.7658186816804514`*^9}, {3.765818746527322*^9, 
+  3.765818786844936*^9}, {3.766169385768346*^9, 
+  3.7661694243412247`*^9}},ExpressionUUID->"7134a876-3f84-4fba-afb8-\
+d3b5e34447a3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "transfer", " ", "water", " ", "for", " ", "another", " ", "minute"}], " ",
+    "*)"}], "\n", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"fillGenOutputs", "[", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{"60", ",", " ", "\"\<Seconds\>\""}], "]"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "the", " ", "first", " ", "and", " ", "second", " ", "outputR", " ", 
+     "filled", " ", "up", " ", "and", " ", "the", " ", "third", "  ", "has", 
+     " ", "3.06122", 
+     SuperscriptBox["m", "3"], " ", "out", " ", "of", " ", "5", 
+     SuperscriptBox["m", "3"]}], " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.765818546633793*^9, 3.7658185522283864`*^9}, {
+  3.7658185929073887`*^9, 3.765818730257348*^9}},
+ CellLabel->
+  "In[396]:=",ExpressionUUID->"33bed328-cf4c-4932-93f4-ec5811d7fd1a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Demo5- Change gauge pressure! + its effects", "Subsection",
+ CellChangeTimes->{{3.7660030735449424`*^9, 
+  3.7660031031037674`*^9}},ExpressionUUID->"9631feac-a86c-4a0c-ba2d-\
+3ce2fc3efc44"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"create", " ", "origin", " ", "seq"}], ",", " ", 
+    RowBox[{"set", " ", "its", " ", "height"}], ",", " ", 
+    RowBox[{
+    "put", " ", "the", " ", "reservoir", " ", "and", " ", "pump", " ", "on", 
+     " ", "it"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenInputReservoir", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"globalConstants", "[", "\"\<densityWater\>\"", "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.6", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addGenPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "0.75", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10000", ",", " ", "\"\<Watts\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.765142225753999*^9, 3.7651422458891516`*^9}, {
+   3.765142364974539*^9, 3.765142467521764*^9}, {3.7651425867634435`*^9, 
+   3.7651425875132685`*^9}, {3.7651480990790453`*^9, 
+   3.7651481357869825`*^9}, {3.7651498037593317`*^9, 3.765149803790688*^9}, {
+   3.765150006497122*^9, 3.7651500130141516`*^9}, {3.765481451039671*^9, 
+   3.765481498007764*^9}, {3.765481532616893*^9, 3.7654815423510437`*^9}, {
+   3.7654816669496*^9, 3.7654816670931044`*^9}, {3.7658181101791315`*^9, 
+   3.765818113240918*^9}, 3.7658184184668984`*^9, {3.7658189336987505`*^9, 
+   3.765818933835147*^9}},
+ CellLabel->
+  "In[398]:=",ExpressionUUID->"ee71f3c9-83a1-4dd4-9d1c-a03bb18245ec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"add", " ", "a", " ", "split"}], ",", " ", 
+    RowBox[{
+    "put", " ", "output", " ", "reservoirs", " ", "on", " ", "all", " ", "3", 
+     " ", "of", " ", "its", " ", "derivative", " ", "sequences"}]}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", " ", "Null"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "\"\<spl2\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", " ", ",", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.25", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"3", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.75", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.5", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2000", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"4", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2000", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.4", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0.4", ",", " ", "\"\<Meters\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1500", ",", " ", "\"\<Pascals\>\""}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", 
+        SuperscriptBox["\"\<Meters\>\"", "3"]}], "]"}], ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"500", ",", " ", 
+        RowBox[{"\"\<Kilograms\>\"", "/", 
+         SuperscriptBox["\"\<Meters\>\"", "3"]}]}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.765143476757517*^9, 3.7651435910351677`*^9}, {
+  3.7651436462773848`*^9, 3.765143648997573*^9}, {3.7651437518333035`*^9, 
+  3.7651437546002626`*^9}, {3.765148081013725*^9, 3.76514809423533*^9}, {
+  3.765148164290863*^9, 3.7651481655407033`*^9}, {3.765149734948582*^9, 
+  3.7651497876006613`*^9}, {3.7651498197324457`*^9, 3.7651498452565603`*^9}, {
+  3.7651498897027903`*^9, 3.7651498971230164`*^9}, {3.7651500031226344`*^9, 
+  3.7651500046850457`*^9}, {3.76515004309726*^9, 3.765150124833156*^9}, {
+  3.7651501838783593`*^9, 3.76515034317199*^9}, {3.765480893216117*^9, 
+  3.7654809946420527`*^9}, {3.7654818757601814`*^9, 3.7654818785619583`*^9}, {
+  3.76549637885417*^9, 3.7654963789974127`*^9}, {3.765817741166235*^9, 
+  3.7658177573959665`*^9}, {3.766007014962824*^9, 3.7660070155957017`*^9}},
+ CellLabel->
+  "In[408]:=",ExpressionUUID->"077ac89e-ae09-4c2d-880a-84aad9cd4373"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"set", " ", "heights", " ", "for", " ", "the", " ", "sequences"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"4", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"3", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7651498102771926`*^9, 3.765149815090955*^9}, {
+  3.7651504220988445`*^9, 3.765150461743854*^9}},
+ CellLabel->
+  "In[413]:=",ExpressionUUID->"dbbaa1f2-be6b-4e39-8780-d57d28ccd829"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"add", " ", "pipes"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addPipes", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", "1", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Centimeters\>\""}], "]"}]}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7658176655193033`*^9, 3.765817710429103*^9}},
+ CellLabel->
+  "In[416]:=",ExpressionUUID->"9d840398-dd75-432a-a35e-a69386c63c0f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"process", " ", "system", " ", "attributes"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"processSysMain", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.765817636359551*^9, 3.7658176449618635`*^9}},
+ CellLabel->
+  "In[419]:=",ExpressionUUID->"b711a28f-6f1b-4dfa-b291-73a96e709a9d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "required", " ", "head", " ", "value", " ", "before", " ", "gauge", " ", 
+    "pressure", " ", "change"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"findHeadVal", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7660070480869246`*^9, 3.7660070909311028`*^9}},
+ CellLabel->
+  "In[420]:=",ExpressionUUID->"b2a6aff8-a5ec-4444-b9ee-64d53c183c6c"],
+
+Cell[BoxData[
+ TemplateBox[{"2.204081632653061`","\"m\"","meters","\"Meters\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{
+  3.766007080436808*^9, 3.766007221807369*^9, {3.7660073252342253`*^9, 
+   3.7660073419312124`*^9}, 3.766169440328725*^9},
+ CellLabel->
+  "Out[420]=",ExpressionUUID->"04fdf3ab-2ce9-414b-8f3b-f74567032d0f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"change", " ", "gauge", " ", "pressure", " ", "on", " ", "input"}],
+    " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"changeGaugePressureGen", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5000", ",", "\"\<Pascals\>\""}], "]"}]}], "]"}], ";"}], "\n", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "required", " ", "head", " ", "value", " ", "after", " ", "gauge", " ", 
+     "pressure", " ", "change"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{
+    "The", " ", "required", " ", "head", " ", "value", " ", "decreased", " ", 
+     "because", " ", "more", " ", "pressure", " ", "on", " ", "the", " ", 
+     "fluid", " ", "in", " ", "the", " ", "input", " ", "reservoir", " ", 
+     "helps", " ", "it", " ", "travel"}], " ", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"findHeadVal", "[", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.76600710127096*^9, 3.766007181975255*^9}, {
+  3.7660073039240284`*^9, 3.766007310824685*^9}},
+ CellLabel->
+  "In[423]:=",ExpressionUUID->"5cdfbedd-89db-4ad8-8109-caa345a27cae"],
+
+Cell[BoxData[
+ TemplateBox[{"2","\"m\"","meters","\"Meters\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.766007325430374*^9, 3.7660073422391615`*^9}, {
+  3.766169443485372*^9, 3.766169445054414*^9}},
+ CellLabel->
+  "Out[424]=",ExpressionUUID->"32c45ec7-15c3-4ade-b44e-e5cf6a023e27"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"change", " ", "gauge", " ", "pressure", " ", "on", " ", 
+    RowBox[{"seq5", "'"}], "s", " ", "outputReservoir"}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "the", " ", "head", " ", "value", " ", "needs", " ", "to", " ", "be", " ", 
+    "higher", " ", "because", " ", "of", " ", "resistance", " ", "from", " ", 
+    "the", " ", "outputR"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"changeGaugePressureGen", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"80000", ",", " ", "\"\<Pascals\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"findHeadVal", "[", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7660072687942405`*^9, 3.766007360441452*^9}},
+ CellLabel->
+  "In[425]:=",ExpressionUUID->"65d6ec1e-22ec-4bf7-8279-0962d6058b6d"],
+
+Cell[BoxData[
+ TemplateBox[{"6.853061224489795`","\"m\"","meters","\"Meters\""},
+  "Quantity"]], "Output",
+ CellChangeTimes->{{3.7660073256409597`*^9, 3.7660073425396423`*^9}, 
+   3.766169446704172*^9},
+ CellLabel->
+  "Out[426]=",ExpressionUUID->"a77b5bd8-7d35-4aed-9c02-d45decb0fc19"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Demo6- View testing! Uses controller functions!", "Subsection",
+ CellChangeTimes->{{3.766168982666379*^9, 
+  3.7661689884586678`*^9}},ExpressionUUID->"aa9a8781-e5ae-42c4-913b-\
+af26470b5a72"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"Instructions", ":", " ", 
+    RowBox[{"run", " ", "the", " ", "test", " ", "1", " ", "cell"}]}], ",", 
+   " ", 
+   RowBox[{"then", " ", "go", " ", "down", " ", "to", " ", "selected"}], ",", 
+   " ", 
+   RowBox[{"initialize", " ", "it", " ", "to", " ", "Null"}], ",", " ", 
+   RowBox[{
+   "then", " ", "run", " ", "the", " ", "dynamic", " ", "readout", " ", "for",
+     " ", 
+    RowBox[{"selected", ".", "\[IndentingNewLine]", "Now"}], " ", "you", " ", 
+    "can", " ", "run", " ", "the", " ", "displayNetwork", " ", "command", " ",
+     "and", " ", "it", " ", "will", " ", "present", " ", "you", " ", "with", 
+    " ", "a", " ", "view", " ", "for", " ", "test", " ", "1.", 
+    "\[IndentingNewLine]", "\t", "Run", " ", "the", " ", "other", " ", 
+    "tests"}], ",", " ", 
+   RowBox[{"execute", " ", "the", " ", "displayNetwork", " ", "for", " ", 
+    RowBox[{"each", ".", "\[IndentingNewLine]", "\t", "Clicking"}], " ", 
+    "the", " ", "sequence", " ", "buttons", " ", "changes", " ", "the", " ", 
+    "selected", " ", "sequence"}]}], "\[IndentingNewLine]", "*)"}]], "Input",
+ CellChangeTimes->{{3.76616899499159*^9, 3.766169049504381*^9}, {
+  3.766169084710279*^9, 3.766169100474742*^9}, {3.766169718117759*^9, 
+  3.766169726724064*^9}},ExpressionUUID->"1a857b87-f025-49a6-852f-\
+48acc153a019"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"test", " ", "1"}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"resetMasterPathList", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "\"\<seq1\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"\"\<seq2\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"3", ",", "1", ",", "2"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "False", ",", " ", "False", ",", " ", "True", ",", " ", "False", ",", 
+        " ", "True"}], "}"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "\"\<seq2\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq2\>\"", ",", " ", "\"\<spl3\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq2\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"11", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"20", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"18", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq6\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"16", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq7\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"11", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq8\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"9", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq9\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"7", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq11\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"14", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq13\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"8", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenInputReservoir", "[", 
+     RowBox[{
+     "\"\<seq1\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", 
+      "1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addGenPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], 
+     "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{
+     "\"\<seq4\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", 
+      "1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{
+     "\"\<seq5\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", 
+      "1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{
+     "\"\<seq11\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", 
+      "1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{
+     "\"\<seq13\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", 
+      "1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", " ", 
+    RowBox[{"The", " ", "error", " ", "thrown", " ", "below", " ", 
+     RowBox[{"doesn", "'"}], "t", " ", 
+     RowBox[{"matter", ".", " ", "We"}], " ", "only", " ", "care", " ", 
+     "about", " ", "the", " ", "structure", " ", "when", " ", "testing", " ", 
+     "to", " ", "make", " ", "sure", " ", "the", " ", "view", " ", "works"}], 
+    " ", "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.765988152949111*^9, 3.765988189387575*^9}, {
+  3.7659934437270994`*^9, 3.7659934456484776`*^9}, {3.7659952907291555`*^9, 
+  3.7659952916755576`*^9}, {3.766019874109969*^9, 3.7660199874477367`*^9}, {
+  3.766168833646346*^9, 3.7661688495044465`*^9}, {3.766169056751075*^9, 
+  3.7661690654238462`*^9}},
+ CellLabel->
+  "In[428]:=",ExpressionUUID->"f3b544f0-3193-4395-af78-5214f01bbef2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Quantity","compat",
+   "\"\\!\\(\\*FractionBox[SuperscriptBox[\\\"\\\\\\\"Seconds\\\\\\\"\\\", \\\
+\"2\\\"], \\\"\\\\\\\"Meters\\\\\\\"\\\"]\\) and \
+\\!\\(\\*FractionBox[SuperscriptBox[\\\"\\\\\\\"Meters\\\\\\\"\\\", \
+\\\"3\\\"], \\\"\\\\\\\"Seconds\\\\\\\"\\\"]\\) are incompatible units\"",2,
+   445,1,22672525587943150618,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.766019982964466*^9, 3.7660199907776513`*^9}, 
+   3.7661694548998327`*^9},
+ CellLabel->
+  "During evaluation of \
+In[428]:=",ExpressionUUID->"6fdb2275-0dc4-4d69-81f1-08de28e4babb"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"test", " ", "2"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"resetMasterPathList", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", " ", 
+      RowBox[{"{", "True", "}"}]}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq7\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"\"\<seq7\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "4"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"False", ",", "True", ",", "True"}], "}"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq9\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"4", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq10\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"3", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq11\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq12\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"1", ",", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq14\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"0", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.7660243224173217`*^9, 3.766024377760024*^9}, {
+   3.7660244788976297`*^9, 3.766024521360794*^9}, 3.7660253615394764`*^9, {
+   3.7660264877430277`*^9, 3.766026572477113*^9}, {3.766168854464491*^9, 
+   3.766168862049261*^9}, {3.766169072166707*^9, 3.766169072315596*^9}},
+ CellLabel->
+  "In[452]:=",ExpressionUUID->"41c03578-7a4a-44c1-99c8-a85c2b58bc62"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"test", " ", "3"}], ",", " ", 
+    RowBox[{"shows", " ", "pump", " ", "and", " ", "output"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"resetMasterPathList", "[", "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSpl", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0", ",", "2"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"True", ",", " ", "True"}], "}"}]}], "]"}], ";"}], " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "\"\<seq7\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"createSpl", "[", 
+    RowBox[{"\"\<seq8\>\"", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", " ", "1", ",", " ", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"False", ",", " ", "False", ",", " ", "True"}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "\"\<spl2\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq7\>\"", ",", " ", "\"\<seq8\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setEnd", "[", 
+     RowBox[{"\"\<seq8\>\"", ",", " ", "\"\<spl9\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq3\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"20", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq4\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"8", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq5\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"6", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq7\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"8", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq8\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq10\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"15", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq11\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"13", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq12\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"10", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq13\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"7", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq15\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenOutputReservoir", "[", 
+     RowBox[{
+     "\"\<seq10\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", 
+      "1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewGenInputReservoir", "[", 
+     RowBox[{
+     "\"\<seq1\>\"", ",", " ", "1", ",", " ", "1", ",", " ", "1", ",", " ", 
+      "1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addInfPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1"}], "]"}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.765988193828769*^9, 3.7659881958126855`*^9}, 
+   3.765988482714717*^9, {3.7659887650877376`*^9, 3.765988765257889*^9}, {
+   3.765988842892827*^9, 3.765988868366072*^9}, {3.7659889315797462`*^9, 
+   3.765988932180334*^9}, {3.7659889767266836`*^9, 3.7659890036098895`*^9}, {
+   3.765989040977473*^9, 3.7659890464195995`*^9}, {3.7659891714456377`*^9, 
+   3.7659892560540977`*^9}, {3.765989286343853*^9, 3.7659893334406123`*^9}, {
+   3.7659894147536945`*^9, 3.7659894190432153`*^9}, {3.7659894517806053`*^9, 
+   3.765989453013649*^9}, {3.765993458710732*^9, 3.7659934609282503`*^9}, {
+   3.7659935969405565`*^9, 3.765993597605677*^9}, {3.765994103254425*^9, 
+   3.7659941039368067`*^9}, {3.7659949135496235`*^9, 3.765994916988098*^9}, {
+   3.7659952948064384`*^9, 3.765995310315388*^9}, {3.765999597981635*^9, 
+   3.7659996913236227`*^9}, {3.7659997234461575`*^9, 3.765999752560457*^9}, {
+   3.7659998015831704`*^9, 3.7659998036847553`*^9}, {3.766168864626654*^9, 
+   3.7661688646693687`*^9}, {3.7661690747582684`*^9, 3.7661690748693705`*^9}},
+ CellLabel->
+  "In[467]:=",ExpressionUUID->"249e75b1-420f-46d6-ad62-77f864fd4d7c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"test", " ", "4"}], ",", " ", 
+    RowBox[{
+     RowBox[{"basic", " ", "input"}], "\[Rule]", "output"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"resetMasterPathList", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "Null"}], "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"5", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewInfInputReservoir", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1", ",", " ", "1", ",", "1"}], "]"}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"addInfPump", "[", 
+     RowBox[{"\"\<seq1\>\"", ",", " ", "1"}], "]"}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{"createSeq", "[", 
+     RowBox[{"Null", ",", " ", "\"\<seq1\>\""}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"setHeight", "[", 
+     RowBox[{"\"\<seq2\>\"", ",", " ", 
+      RowBox[{"Quantity", "[", 
+       RowBox[{"2", ",", " ", "\"\<Meters\>\""}], "]"}]}], "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"mapNewUnboundedOutputReservoir", "[", 
+     RowBox[{"\"\<seq2\>\"", ",", " ", "1", ",", "1", ",", "1"}], "]"}], 
+    ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.766016616173735*^9, 3.766016784221523*^9}, {
+   3.7660168175518475`*^9, 3.7660170049497056`*^9}, {3.76601704148694*^9, 
+   3.7660170422526183`*^9}, {3.7661688707027206`*^9, 3.766168870754488*^9}, 
+   3.7661689560305586`*^9, {3.766169078261442*^9, 3.7661690783740883`*^9}, {
+   3.766169641892209*^9, 3.7661696837821465`*^9}},
+ CellLabel->
+  "In[499]:=",ExpressionUUID->"126bd20d-c5f3-4320-9c0f-6d72f5e57975"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "set", " ", "the", " ", "currently", " ", "selected", " ", "sequence", " ",
+     "to", " ", "Null", " ", "to", " ", "initialize", " ", "it"}], " ", 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"selected", " ", "=", " ", "Null"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.765975614372246*^9, 3.765975619271*^9}, {
+  3.766168786535229*^9, 3.7661688011063232`*^9}, {3.7661689492830005`*^9, 
+  3.766168949671531*^9}, {3.766169698532988*^9, 
+  3.7661697002718*^9}},ExpressionUUID->"381dd2cc-a6da-4fe2-9e0b-b384ed50dfcd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "see", " ", "the", " ", "selected", " ", "sequence", " ", "update", " ", 
+    "when", " ", "you", " ", "click", " ", "on", " ", "the", " ", "buttons"}],
+    " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"Dynamic", "[", "selected", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7659755676531706`*^9, 3.765975569668619*^9}, {
+  3.7661688122075434`*^9, 
+  3.76616882431567*^9}},ExpressionUUID->"5216761c-db7a-4f34-8ee2-\
+1e5e7c64b5be"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[$CellContext`selected, StandardForm],
+  ImageSizeCache->{28., {3., 8.}}]], "Output",
+ CellChangeTimes->{3.7659755702169404`*^9, 3.765975612569603*^9, 
+  3.765984524405554*^9, 3.7659887409875617`*^9, 3.765991827119131*^9, 
+  3.7659993766590385`*^9, 3.7660166102986994`*^9, 3.7660169235940914`*^9, 
+  3.7660253406693497`*^9},
+ CellLabel->
+  "Out[314]=",ExpressionUUID->"cf9cf646-5b79-4456-8276-19914389c441"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"display", " ", "is", " ", 
+     RowBox[{"modular", ":", " ", "units"}]}], ",", " ", "fontSize", ",", " ",
+     "fontType", ",", " ", 
+    RowBox[{"line", " ", "thickness"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"warning", ":", " ", 
+     RowBox[{
+     "changing", " ", "the", " ", "parameters", " ", "might", " ", "produce", 
+      " ", "bad", " ", "displays", "\[IndentingNewLine]", "example"}], ":", 
+     " ", 
+     RowBox[{"the", " ", "display", " ", "is", " ", "proportional"}]}], ",", 
+    " ", 
+    RowBox[{
+    "so", " ", "using", " ", "\"\<Centimeters\>\"", " ", "as", " ", "the", 
+     " ", "units", " ", "will", " ", "require", " ", "lots", " ", "of", " ", 
+     "scrolling", " ", "when", " ", "the", " ", "view", " ", "is", " ", 
+     "displayed"}]}], " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"don", "'"}], "t", " ", "mess", " ", "with", " ", "the", " ", 
+    "black", " ", 
+    RowBox[{"options", ".", " ", "building"}], " ", "the", " ", "network", 
+    " ", "and", " ", "modifying", " ", "it", " ", "should", " ", "be", " ", 
+    "done", " ", "through", " ", "the", " ", "UI", " ", "because", " ", "it", 
+    " ", "has", " ", "an", " ", "organized", " ", "system", " ", "setup"}], 
+   " ", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"displayNetwork", "[", 
+   RowBox[{
+   "\"\<Meters\>\"", ",", " ", "16", ",", " ", "\"\<Comic Sans MS\>\"", ",", 
+    " ", "0.01"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7659770202550616`*^9, 3.7659770431412945`*^9}, {
+  3.765977455577775*^9, 3.765977495501255*^9}, {3.765977618136946*^9, 
+  3.7659776392710323`*^9}, {3.765983683304249*^9, 3.7659836846228933`*^9}, {
+  3.7659894681127024`*^9, 3.7659894722825155`*^9}, {3.765999394142318*^9, 
+  3.76599942616679*^9}, {3.7659995148309712`*^9, 3.765999552061679*^9}, {
+  3.766024554822646*^9, 3.7660245592552867`*^9}, {3.7661688843148785`*^9, 
+  3.766168934563491*^9}, {3.7661694753853383`*^9, 3.7661695389082727`*^9}},
+ CellLabel->
+  "In[507]:=",ExpressionUUID->"c7a88697-ad79-4ffa-868a-0c24f30480ca"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1280, 637},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 167, 3, 67, "Chapter",ExpressionUUID->"9c3ba3bf-cc5b-4216-9e4a-fd989af1321b"],
+Cell[CellGroupData[{
+Cell[772, 29, 201, 3, 53, "Subsection",ExpressionUUID->"8850c6b3-97d5-4c92-936f-e3351fc82f44"],
+Cell[976, 34, 2799, 59, 128, "Input",ExpressionUUID->"3e8e3d01-fc3d-4eb6-a368-bd0169b9f691"],
+Cell[3778, 95, 1402, 31, 86, "Input",ExpressionUUID->"828f7330-5847-4083-9d50-33fc445d8a7c"],
+Cell[5183, 128, 1148, 30, 86, "Input",ExpressionUUID->"3227f171-d677-4483-8f7c-31f755af1184"],
+Cell[6334, 160, 1423, 29, 86, "Input",ExpressionUUID->"2789cb39-0f30-4c50-824e-2729464dd7de"],
+Cell[7760, 191, 514, 13, 48, "Input",ExpressionUUID->"c86cbc30-d802-4c00-b1ff-62d9d8e4b7e4"],
+Cell[8277, 206, 666, 12, 28, "Input",ExpressionUUID->"641c68b7-1b02-46ac-bda8-00d50f576700"],
+Cell[8946, 220, 315, 7, 28, "Input",ExpressionUUID->"03008c7a-0ce6-44f7-beef-db221990a5eb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9298, 232, 310, 5, 53, "Subsection",ExpressionUUID->"92a2f0ab-768d-4150-86b4-be2126c77e34"],
+Cell[9611, 239, 2220, 52, 148, "Input",ExpressionUUID->"a7e54709-2ea0-46cf-9373-99344546cb86"],
+Cell[11834, 293, 1592, 39, 90, "Input",ExpressionUUID->"e48b5ed1-ad05-4c7a-b647-ee943201f513"],
+Cell[13429, 334, 1247, 27, 86, "Input",ExpressionUUID->"b8929cb7-f8ba-4103-bd9e-946f1952c195"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14713, 366, 294, 4, 53, "Subsection",ExpressionUUID->"f21a54b8-0b1d-4dd4-abef-a0100696f3e6"],
+Cell[15010, 372, 2755, 62, 171, "Input",ExpressionUUID->"13bdc25e-27fc-4b6f-8802-e7561e7e4262"],
+Cell[17768, 436, 5409, 118, 282, "Input",ExpressionUUID->"6f4c2ede-da6d-41df-b0c6-ec8c9896255a"],
+Cell[23180, 556, 1011, 27, 86, "Input",ExpressionUUID->"06ca9d4e-2574-49a6-9c59-b00d806a8a2d"],
+Cell[CellGroupData[{
+Cell[24216, 587, 1229, 26, 86, "Input",ExpressionUUID->"b7096395-5406-4c15-b201-0ec32657b588"],
+Cell[25448, 615, 280, 6, 40, "Output",ExpressionUUID->"ad2de1e5-050c-4af2-9e7f-b92b93b3dc16"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25777, 627, 181, 3, 53, "Subsection",ExpressionUUID->"6063c1ee-8fda-437c-8ea6-49616fae70a4"],
+Cell[25961, 632, 2891, 64, 171, "Input",ExpressionUUID->"a5dab3c5-b3ca-4662-b515-d68c15cd4690"],
+Cell[28855, 698, 5460, 119, 282, "Input",ExpressionUUID->"bcbf250d-1090-4b25-9ebf-84d224833abc"],
+Cell[34318, 819, 1011, 27, 86, "Input",ExpressionUUID->"a7b9b98b-be45-4092-bd11-e0d9cd01eeec"],
+Cell[35332, 848, 974, 25, 86, "Input",ExpressionUUID->"c736af95-b8cf-40ce-9884-f26648bf1c95"],
+Cell[36309, 875, 346, 8, 48, "Input",ExpressionUUID->"f61ef167-1e6d-4994-bcc6-10f0f0d09f28"],
+Cell[CellGroupData[{
+Cell[36680, 887, 711, 19, 67, "Input",ExpressionUUID->"a13df814-6896-4bf9-b800-ac076ad323f8"],
+Cell[37394, 908, 179, 3, 32, "Output",ExpressionUUID->"23a485e0-068d-4bd0-b2d7-bd4cfca23ab5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37610, 916, 2699, 53, 162, "Input",ExpressionUUID->"61d1a3cf-c0c9-47f7-96f6-f2140c6f8f8a"],
+Cell[40312, 971, 249, 4, 32, "Output",ExpressionUUID->"08f41034-75fd-4f65-a20d-6ad109f59467"]
+}, Open  ]],
+Cell[40576, 978, 2628, 52, 200, "Input",ExpressionUUID->"7134a876-3f84-4fba-afb8-d3b5e34447a3"],
+Cell[43207, 1032, 882, 22, 67, "Input",ExpressionUUID->"33bed328-cf4c-4932-93f4-ec5811d7fd1a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44126, 1059, 195, 3, 53, "Subsection",ExpressionUUID->"9631feac-a86c-4a0c-ba2d-3ce2fc3efc44"],
+Cell[44324, 1064, 2891, 64, 171, "Input",ExpressionUUID->"ee71f3c9-83a1-4dd4-9d1c-a03bb18245ec"],
+Cell[47218, 1130, 4601, 101, 224, "Input",ExpressionUUID->"077ac89e-ae09-4c2d-880a-84aad9cd4373"],
+Cell[51822, 1233, 1011, 27, 86, "Input",ExpressionUUID->"dbbaa1f2-be6b-4e39-8780-d57d28ccd829"],
+Cell[52836, 1262, 974, 25, 86, "Input",ExpressionUUID->"9d840398-dd75-432a-a35e-a69386c63c0f"],
+Cell[53813, 1289, 346, 8, 48, "Input",ExpressionUUID->"b711a28f-6f1b-4dfa-b291-73a96e709a9d"],
+Cell[CellGroupData[{
+Cell[54184, 1301, 406, 9, 48, "Input",ExpressionUUID->"b2a6aff8-a5ec-4444-b9ee-64d53c183c6c"],
+Cell[54593, 1312, 332, 7, 40, "Output",ExpressionUUID->"04fdf3ab-2ce9-414b-8f3b-f74567032d0f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54962, 1324, 1167, 25, 105, "Input",ExpressionUUID->"5cdfbedd-89db-4ad8-8109-caa345a27cae"],
+Cell[56132, 1351, 289, 6, 40, "Output",ExpressionUUID->"32c45ec7-15c3-4ade-b44e-e5cf6a023e27"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[56458, 1362, 918, 21, 86, "Input",ExpressionUUID->"65d6ec1e-22ec-4bf7-8279-0962d6058b6d"],
+Cell[57379, 1385, 285, 6, 40, "Output",ExpressionUUID->"a77b5bd8-7d35-4aed-9c02-d45decb0fc19"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57713, 1397, 197, 3, 53, "Subsection",ExpressionUUID->"aa9a8781-e5ae-42c4-913b-af26470b5a72"],
+Cell[57913, 1402, 1355, 25, 105, "Input",ExpressionUUID->"1a857b87-f025-49a6-852f-48acc153a019"],
+Cell[CellGroupData[{
+Cell[59293, 1431, 5472, 138, 466, "Input",ExpressionUUID->"f3b544f0-3193-4395-af78-5214f01bbef2"],
+Cell[64768, 1571, 611, 13, 51, "Message",ExpressionUUID->"6fdb2275-0dc4-4d69-81f1-08de28e4babb"]
+}, Open  ]],
+Cell[65394, 1587, 3380, 90, 314, "Input",ExpressionUUID->"41c03578-7a4a-44c1-99c8-a85c2b58bc62"],
+Cell[68777, 1679, 5669, 140, 447, "Input",ExpressionUUID->"249e75b1-420f-46d6-ad62-77f864fd4d7c"],
+Cell[74449, 1821, 1880, 47, 181, "Input",ExpressionUUID->"126bd20d-c5f3-4320-9c0f-6d72f5e57975"],
+Cell[76332, 1870, 684, 13, 124, "Input",ExpressionUUID->"381dd2cc-a6da-4fe2-9e0b-b384ed50dfcd"],
+Cell[CellGroupData[{
+Cell[77041, 1887, 489, 11, 48, "Input",ExpressionUUID->"5216761c-db7a-4f34-8ee2-1e5e7c64b5be"],
+Cell[77533, 1900, 440, 8, 32, "Output",ExpressionUUID->"cf9cf646-5b79-4456-8276-19914389c441"]
+}, Open  ]],
+Cell[77988, 1911, 2160, 43, 105, "Input",ExpressionUUID->"c7a88697-ad79-4ffa-868a-0c24f30480ca"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
